@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: pink  ;
+    }
+    h2{
+        background-color: aqua;
+        color: red;
+        margin: 50px -520px 500px 50px;
+        border: 5px solid black;
+        box-shadow: 2px solid white;
+        font-style: initial;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 100;
+    }
+    .converter {
+        width: 550px;
+        height: 320px;
+        display: inline;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+
+    }
+    .converter:hover{
+        width:600px ;
+        height: 345px;
+        transition: 1.5s;
+        background-color: aqua;
+        color: white;
+        font-weight: bolder;
+    }
+    .converter h1:hover{
+        transition: 0.8s;
+        color: red;
+    }
+    
+    .input-container {
+        margin: 10px 0;
+    }
+    
+    label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+    }
+    label:hover{
+        color: blue;
+        transition: 0.9s;
+    }
+    
+    input {
+        padding: 5px;
+        width: 150px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    button:hover{
+        transform: rotate(360deg);
+        transition: 4s;
+    }
+    
+</style>
+<body>
+    <h2>DESIGN BY ALTOHID SHEIKH</h2>
+    <div class="converter">
+        
+        <h1>Temperature Converter</h1>
+        <div class="input-container">
+            <label for="celsius">Celsius:</label>
+            <input type="number" id="celsius">
+        </div>
+        <div class="input-container">
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="number" id="fahrenheit">
+        </div>
+        <button id="convertBtn">Convert</button>
+    </div>
+   
+</body>
+<script>
+    const celsiusInput = document.getElementById("celsius");
+const fahrenheitInput = document.getElementById("fahrenheit");
+const convertBtn = document.getElementById("convertBtn");
+
+convertBtn.addEventListener("click", () => {
+    if (celsiusInput.value !== "") {
+        const celsius = parseFloat(celsiusInput.value);
+        const fahrenheit = (celsius * 9/5) + 32;
+        fahrenheitInput.value = fahrenheit.toFixed(2);
+    } else if (fahrenheitInput.value !== "") {
+        const fahrenheit = parseFloat(fahrenheitInput.value);
+        const celsius = (fahrenheit - 32) * 5/9;
+        celsiusInput.value = celsius.toFixed(2);
+    }
+});
+
+</script>
+</html>
